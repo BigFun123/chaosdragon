@@ -1,0 +1,1 @@
+node --require ./file_instrumentation.js test.js
