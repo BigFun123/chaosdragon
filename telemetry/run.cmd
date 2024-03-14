@@ -1,1 +1,1 @@
-node --require ./file_instrumentation.js test.js
+node --cpu-prof --require ./node_instrumentation.js --require ./log.js test.js

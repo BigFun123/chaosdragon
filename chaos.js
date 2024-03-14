@@ -10,6 +10,7 @@ app.use(express.json());
 app.use('/', require('./routes/index'));
 app.use('/config', require('./routes/config/index'));
 app.use('/api', require('./routes/api/index'));
+app.use('/telemetry', require('./routes/telemetry/index'));
 //router.use('/routes/api', require('./routes/api'));
 //router.use('/routes/config', require('./routes/config'));
 
