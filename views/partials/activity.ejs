@@ -1,0 +1,24 @@
+<div class="activity">    
+    <input type="checkbox" class="checkbox" id="a<%=datum.name%>active" checked>
+    <div id="name<%=datum.name%>" class="name label">
+        <%= datum.name %>
+    </div>
+    <button class="button" id="testbutton<%-datum.name%>">Test</button>
+    <input type="checkbox" id="r<%=datum.name%>post" <%if (datum.method=="POST" ) {%>CHECKED <%}%>>
+        <div class="label">POST</div>
+        <select id="personality">
+            <option value="bee" <%- datum.personality=="bee" ? "selected" : "" %>> Bee</option>
+            <option value="monkey" <%- datum.personality=="monkey" ? "selected" : "" %>>Monkey</option>
+            <option value="butterfly" <%- datum.personality=="butterfly" ? "selected" : "" %>>Butterfly</option>
+            <option value="dragon" <%- datum.personality=="dragon" ? "selected" : "" %>>Dragon</option>
+            <option value="donkey" <%- datum.personality=="donkey" ? "selected" : "" %>>Donkey</option>
+        </select>
+        <div class="vstack">
+            <input type="text" value="<%=datum.url%>" id="url<%=datum.name%>">
+            <input type="text" class="result" id="result<%=datum.name%>">
+        </div>
+</div>
+
+<script>
+    agents.push(new Agent(<%-JSON.stringify(datum)%>));
+</script>

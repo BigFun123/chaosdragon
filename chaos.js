@@ -1,4 +1,6 @@
 // create an express site
+const config = require("./config.json");
+
 var express = require('express');
 const router = express.Router();
 var app = express();
@@ -6,14 +8,17 @@ var app = express();
 app.use(express.json());
 
 
+
+
 //const indexRoute = require('./routes/index');
 app.use('/', require('./routes/index'));
-app.use('/config', require('./routes/config/index'));
-app.use('/api', require('./routes/api/index'));
-app.use('/telemetry', require('./routes/telemetry/index'));
+app.use('/config', require('./routes/config'));
+app.use('/api', require('./routes/api/'));
+app.use('/chaos', require('./routes/chaos'));
+app.use('/telemetry', require('./routes/telemetry'));
 //router.use('/routes/api', require('./routes/api'));
 //router.use('/routes/config', require('./routes/config'));
-
+app.disable('view cache');
 
 // set up the view engine
 app.set('view engine', 'ejs');
@@ -26,6 +31,6 @@ app.use(express.static('public'));
 
 // start the server
 
-app.listen(3000, function() {
-    console.log('Listening on port 3000');
+app.listen(config.admin.port || 3777, function() {
+    console.log(`Listening on port ${config.admin.host}:${config.admin.port}`);
     });

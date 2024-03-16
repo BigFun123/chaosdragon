@@ -1,42 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<input type="checkbox" id="toggleMetrics" /> Metrics Enabled
+<canvas id="chaosChart" style="width:100%;"></canvas>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaos Dragon Telemetry</title>
-    <%- include('partials/headcontent') %>
-</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 
-<body>
-    <%- include('partials/header') %>
+<script>
 
 
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-        </script>
-
-        <script>
-            const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-            const yValues = [55, 49, 44, 24, 15];
-            const myChart = new Chart("myChart", {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                        data: yValues
-                    }, {
-                        data: [16, 17, 17, 19, 20, 27, 40, 50, 60, 70],
-                        borderColor: "green",
-                        fill: false
-                    }]
-                },
-                options: {}
-            });
-        </script>
-
-
-</body>
-
-</html>
+    const xValues = ["0"];
+    const yValues = [0,0];
+    const myChart = new Chart("chaosChart", {
+        type: "line",
+        bezierCurve: false,
+        data: {
+            labels: xValues,
+            datasets: [{
+                data: yValues,
+                borderColor: "red",
+                fill: false,
+                label: "c",
+                tension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "green",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                lineTension: 0,
+                cubicInterpolationMode: 'default'
+            },
+            {
+                data: yValues,
+                borderColor: "blue",
+                fill: false,
+                label: "c",
+                cubicInterpolationMode: 'default',
+                lineTension: 0,
+            }]
+        },
+        options: {}
+    });    
+</script>

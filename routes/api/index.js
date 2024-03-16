@@ -18,4 +18,16 @@ router.post('/', (req, res) => {
     res.send(defaultResponse);
 });
 
+router.get('/test', (req, res) => {
+    defaultResponse.id = counter++;
+    console.log("chaos received");
+    res.send(defaultResponse);
+});
+
+router.post('/test', (req, res) => {
+    defaultResponse.id = counter++;
+    console.log("chaos received");
+    res.send(defaultResponse);
+});
+
 module.exports = router;

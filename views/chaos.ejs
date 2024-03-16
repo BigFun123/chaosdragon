@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos</title>
+    <%- include ('partials/headcontent.ejs') %>
+        <script src="/js/agent.js"></script>
+
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <div class="main">
+            <div class="hflex">
+                <button class="button" id="autoPilotButton">Auto Pilot</button>
+            </div>
+            <script src="/js/agentman.js"></script>
+            <h2>Agents</h2>
+
+            <% data.forEach( datum=> { %>
+                <%- include ('partials/activity', {datum: datum}); %>
+                    <% }) %>
+
+        </div>
+        <%- include('./telemetry') %>
+        <script src="/js/telemetry.js"></script>
+        
+</body>
+
+</html>

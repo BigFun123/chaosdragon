@@ -1,0 +1,70 @@
+{
+    "admin": {
+        "username": "admin",
+        "password": "admin",
+        "host": "localhost",
+        "port": 7000
+    },    
+    "agents": [
+        {
+            "active": true,
+            "name": "c1",
+            "url": "http://localhost:7000/api/test",
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "personality": "bee"
+        },
+        {            
+            "active": true,
+            "name": "c2",
+            "url": "http://localhost:7000/api/test",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "name": "c2"
+            },
+            "personality": "monkey"
+
+        },
+        {            
+            "active": true,
+            "name": "c3",
+            "url": "https://google.com",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "name": "c3"
+            },
+            "personality": "butterfly"
+        },
+        {            
+            "active": true,
+            "name": "c4",
+            "url": "",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "name": "c4"
+            },
+            "personality": "donkey"
+        },
+        {            
+            "active": true,
+            "name": "c5",            
+            "url": "http://localhost:7000/api/test",
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "personality": "dragon"
+        }
+    ]
+}

@@ -3,28 +3,30 @@ body {
     margin: 0;
     padding: 0;
     background-color: #a5a5a5;
+    color: white;
 }
 
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;    
+    display: flex;        
     flex-direction: column;
-    background-color: #555;
+    background-color: #242424;
+    padding:10px;
 }
 
 .title {
-    font-size: 18px;
+    font-size: 21px;
     font-style: bold;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     align-items: center;
     vertical-align: center;
     padding: 3px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 
 .header {
+    background-color: #1d1d46;
     display: flex;
     justify-content: start;
     flex: 1;
@@ -38,16 +40,44 @@ body {
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    background-color: #4C4c50;
+    background-color: #58585f;
     color: white;
-    font-size: 14px;
+    font-size: 14px;  
+    padding: 5px;  
+    max-width: 150px;
 }
 
 .button:hover {
-    background-color: #45a049;
+    background-color: #51a3f0;
+}
+
+.label {
+    height: 100%;
+    padding:10px;
+    
 }
 
 a {
     text-decoration: none;
     color: white;
+}
+
+h1 {    
+    margin:20px;
+    font-size: 30px;
+    color: white;    
+    padding: 0;
+    font-variant: small-caps;
+}
+
+
+.hflex {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+input {
+    background-color: #575757;
+    color:white;
 }
