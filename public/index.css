@@ -1,22 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --c-gray-900: #000000;
+    --c-gray-800: #1f1f1f;
+    --c-gray-700: #2e2e2e;
+    --c-gray-600: #313131;
+    --c-gray-500: #969593;
+    --c-gray-400: #a6a6a6;
+    --c-gray-300: #bdbbb7;
+    --c-gray-200: #f1f1f1;
+    --c-gray-100: #ffffff;
+
+    --c-green-500: #45ffbc;
+    --c-olive-500: #e3ffa8;
+
+    --c-white: var(--c-gray-100);
+
+    --c-text-primary: var(--c-gray-100);
+    --c-text-secondary: var(--c-gray-200);
+    --c-text-tertiary: var(--c-gray-500);
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Be Vietnam Pro", sans-serif;    
     margin: 0;
     padding: 0;
-    background-color: #0f142c;
-    color: white;
+    background-color: var(--c-gray-900);
+    color: var(--c-text-primary);
 }
 
 .main {
-    display: flex;        
+    display: flex;
     flex-direction: column;
-    background-color: #242424;
-    padding:10px;
+    background-color: var(--c-gray-900);
+    padding: 10px;
 }
 
 .title {
     font-size: 21px;
     font-style: bold;
-    color: white;
+    color: var(--c-green-500);
     margin-bottom: 15px;
     align-items: center;
     vertical-align: center;
@@ -25,10 +48,24 @@ body {
     margin-left: 10px;
 }
 
+.heading {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 5px;
+    background-color: var(--c-gray-800);
+    color: var(--c-green-500);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+
+}
+
 .header {
     background-color: #1d1d46;
+    color: var(--c-green-500);
     display: flex;
-    
+
     flex: 1;
     flex-direction: row;
     height: 32px;
@@ -37,14 +74,17 @@ body {
 
 .slidecontainer {
     display: flex;
-    flex-direction: row;    
-    width: 300px;
+    flex-direction: row;
+    width: 400px;
     padding: 5px;
     height: 24px;
 }
 
 .sliderInput {
-    width: 100px;
+    margin: 1px;
+    width: 60px;
+    height: 24px;
+    border: none;
 }
 
 .controlLabel {
@@ -59,10 +99,10 @@ body {
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    background-color: #58585f;
+    background-color: var(--c-gray-800);
     color: white;
-    font-size: 14px;  
-    padding: 5px;  
+    font-size: 14px;
+    padding: 5px;
     max-width: 150px;
 }
 
@@ -75,27 +115,29 @@ body {
 }
 
 .label {    
-    padding:10px;
+    font-weight: bold;    
+    padding: 10px;
+    padding-top:15px;
+
 }
 
 .submenu {
     display: flex;
     flex-direction: row;
     flex: 1;
-    background-color: #1d1d46;
     padding: 5px;
 
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: var(--c-green-500);
 }
 
-h1 {    
-    margin:20px;
+h1 {
+    margin: 20px;
     font-size: 30px;
-    color: white;    
+    color: white;
     padding: 0;
     font-variant: small-caps;
 }
@@ -110,47 +152,111 @@ h1 {
 .flex1 {
     flex: 1;
 }
+
 .flex2 {
     flex: 2;
 }
 
 input {
     background-color: #575757;
-    color:white;
+    color: white;
 }
 
 /** slider **/
 /* The slider itself */
 .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* Override default CSS styles */
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 100%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
     transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #04AA6D;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #04AA6D;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+.checkbox {
+    width: 45px;
+    background-color: var(--c-gray-500);    
+    color: var(--c-green-500);
+}
+
+
+.checkbox:after {
+    content: '';
+    display: none;
+}
+
+.checkbox:checked:after {
+    display: block;    
+    background-color: var(--c-green-500);    
+}
+
+.checkbox:checked:after {
+    content: '\2713';
+    font-size: 20px;
+    color: var(--c-gray-900);
+    text-align: center;    
+    line-height: 45px;
+}
+
+
+
+.checkmark {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background-color: var(--c-gray-500);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+select {
+    border: none;
+    background-color: var(--c-gray-700);
+    color: var(--c-text-primary);
+}
+

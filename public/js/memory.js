@@ -28,6 +28,6 @@ function updateMemory() {
         process.memory.external = Math.round(memory.external / 1024 / 1024);
 
         const memoryDiv = document.getElementById('memory');
-        memoryDiv.innerHTML = `rss: ${memory.rss}MB, heapTotal: ${memory.heapTotal}MB, heapUsed: ${memory.heapUsed}MB, external: ${memory.external}MB`;
+        memoryDiv.innerHTML = `rss: ${memory.rss}MB | heapTotal: ${memory.heapTotal}MB | heapUsed: ${memory.heapUsed}MB | external: ${memory.external}MB`;
     });
 }
