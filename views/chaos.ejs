@@ -12,22 +12,27 @@
 
 <body>
     <%- include('partials/header') %>
-
         <div class="main">
-            <div class="hflex">
-                <button class="button" id="autoPilotButton">Auto Pilot</button>
+            
+            <div class="submenu">
+                <h3>Agents</h3>
+                <div class="slidecontainer">
+                    <label for="agentFrequency" class="controlLabel">Speed</label>
+                    <input type="range" min="1" max="1000" value="20" class="slider" id="agentFrequency">
+                    <input type="text" id="frequencyValue" class="sliderInput" value="20" readonly>
+                </div>
             </div>
             <script src="/js/agentman.js"></script>
-            <h2>Agents</h2>
-
-            <% data.forEach( datum=> { %>
-                <%- include ('partials/activity', {datum: datum}); %>
-                    <% }) %>
-
+            <div id="agents">
+                <% data.forEach( datum=> { %>
+                    <%- include ('partials/activity', {datum: datum}); %>
+                        <% }) %>
+            </div>
         </div>
         <%- include('./telemetry') %>
-        <script src="/js/telemetry.js"></script>
-        
+            <script src="/js/telemetry.js"></script>
+            <script src="/js/memory.js"></script>
+
 </body>
 
 </html>

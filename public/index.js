@@ -17,7 +17,7 @@ class Chaos {
     }
 
     // randomly send text to a url
-    sendText() {
+    /*sendText() {
         fetch('/api', {
             method: 'POST',
             headers: {
@@ -33,7 +33,7 @@ class Chaos {
         setInterval(() => {
             this.sendText();
         }, 1000);
-    }
+    }*/
 }
 
 new Chaos().start();

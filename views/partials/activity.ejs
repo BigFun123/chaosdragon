@@ -1,12 +1,14 @@
 <div class="activity">    
-    <input type="checkbox" class="checkbox" id="a<%=datum.name%>active" checked>
+    <input type="checkbox" class="checkbox" id="active<%=datum.name%>" checked>
     <div id="name<%=datum.name%>" class="name label">
         <%= datum.name %>
     </div>
     <button class="button" id="testbutton<%-datum.name%>">Test</button>
     <input type="checkbox" id="r<%=datum.name%>post" <%if (datum.method=="POST" ) {%>CHECKED <%}%>>
-        <div class="label">POST</div>
-        <select id="personality">
+    <div class="label">Post</div>
+    <input type="checkbox" id="backend<%=datum.name%>" <%if (datum.backend ) {%>CHECKED <%}%>>
+    <div class="label">Backend</div>
+        <select id="personality<%=datum.name%>">
             <option value="bee" <%- datum.personality=="bee" ? "selected" : "" %>> Bee</option>
             <option value="monkey" <%- datum.personality=="monkey" ? "selected" : "" %>>Monkey</option>
             <option value="butterfly" <%- datum.personality=="butterfly" ? "selected" : "" %>>Butterfly</option>

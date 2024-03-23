@@ -2,11 +2,19 @@
 .activity {
     display: flex;
     flex-direction: row;   
-    border-bottom: solid 1px rgb(82, 82, 82);
+    
     padding-bottom: 2px;
     padding-top: 2px;
     height: 50px;
     flex:2;
+}
+
+div.container > div:nth-of-type(odd) {
+    background: #e0e0e0;
+}
+
+div.container > div:nth-of-type(even) {
+    background: #10e0e0;
 }
 
 .result {
@@ -26,7 +34,7 @@
 
 
 .active {
-    background-color: #2d8d42;
+    background-color: #588a63;
 }
 
 .error {

@@ -1,4 +1,4 @@
-<input type="checkbox" id="toggleMetrics" /> Metrics Enabled
+<input type="checkbox" id="toggleMetrics" checked/> Metrics Enabled
 <canvas id="chaosChart" style="width:100%;"></canvas>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
@@ -6,25 +6,26 @@
 
 <script>
 
-
-
-    const xValues = ["0"];
+    const xValues = [];
     const yValues = [0,0];
     const myChart = new Chart("chaosChart", {
         type: "line",
         bezierCurve: false,
+        color: 'white',
         data: {
             labels: xValues,
             datasets: [{
-                data: yValues,
+                data: [],
                 borderColor: "red",
                 fill: false,
                 label: "c",
                 tension: 0,
-                cubicInterpolationMode: 'default'
+                cubicInterpolationMode: 'default',
+                linewidth: 1,
+                color: 'white'
             },
             {
-                data: yValues,
+                data: [],
                 borderColor: "green",
                 fill: false,
                 label: "c",
@@ -32,7 +33,7 @@
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
+                data: [],
                 borderColor: "blue",
                 fill: false,
                 label: "c",
@@ -40,48 +41,48 @@
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "orange",
                 fill: false,
                 label: "c",
                 lineTension: 0,
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "purple",
                 fill: false,
                 label: "c",
                 lineTension: 0,
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "#55F",
                 fill: false,
                 label: "c",
                 lineTension: 0,
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "black",
                 fill: false,
                 label: "c",
                 lineTension: 0,
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "pink",
                 fill: false,
                 label: "c",
                 lineTension: 0,
                 cubicInterpolationMode: 'default'
             },
             {
-                data: yValues,
-                borderColor: "blue",
+                data: [],
+                borderColor: "ltblue",
                 fill: false,
                 label: "c",
                 cubicInterpolationMode: 'default',
