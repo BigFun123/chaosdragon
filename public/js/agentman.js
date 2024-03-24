@@ -1,65 +1,77 @@
-let timerTime = 1000;
+class AgentMan {
+    timerTime = 1000;
+    agents = [];
+    AutoPilotTimer = null;
+    ChaosActive = false;
+    MainFrequency = 50;
+    mainCounter = 0;
 
-let agents = [];
-let ChaosActive = false;
-const autoPilotButton = document.getElementById('autoPilotButton');
-let AutoPilotTimer = null;
-
-let MainFrequency = 50;
-const MainFrequencyDiv = document.getElementById('agentFrequency');
-MainFrequencyDiv.oninput = function () {
-    MainFrequency = MainFrequencyDiv.value;
-    frequencyValue.value = MainFrequency;
-    timerTime = 1000 - MainFrequency + 1;
-    console.log("new timerTime: " + timerTime);
-};
-
-const frequencyValue = document.getElementById('frequencyValue');
-MainFrequencyDiv.value = MainFrequency;
-frequencyValue.innerHTML = MainFrequency;
-
-let mainCounter = 0;
-
-
-autoPilotButton.addEventListener('click', () => {
-    if (ChaosActive) {
-        autoPilotButton.classList.remove('active');
-        ChaosActive = false;
-        clearTimeout(AutoPilotTimer);
-    } else {
-        autoPilotButton.classList.add('active');
-        ChaosActive = true;
-        AutoPilotTimer = setTimeout(runAll, timerTime);
+    constructor(config) {
+        this.config = config;
     }
-});
 
+    setup() {
+        this.autoPilotButton = document.getElementById('autoPilotButton');
+        this.autoPilotButton.addEventListener('click', () => {
+            if (this.ChaosActive) {
+                this.autoPilotButton.classList.remove('active');
+                this.ChaosActive = false;
+                clearTimeout(this.AutoPilotTimer);
+            } else {
+                this.autoPilotButton.classList.add('active');
+                this.ChaosActive = true;
+                this.AutoPilotTimer = setTimeout(()=>this.runAll(), this.timerTime);                
+            }
+        });
 
-function runAll() {
-    mainCounter++;
-    agents.forEach((agent) => {
-        if (agent.active) {
-            agent.run();
-        }
-    });
-    AutoPilotTimer = setTimeout(runAll, timerTime);
-}
+        const MainFrequencyDiv = document.getElementById('agentFrequency');
+        MainFrequencyDiv.oninput =  () => {
+            this.MainFrequency = MainFrequencyDiv.value;
+            frequencyValue.value = this.MainFrequency;
+            this.timerTime = 1000 - this.MainFrequency + 1;
+            console.log("new timerTime: " + this.timerTime);
+        };
 
-function saveConfig() {
-    this.config.active = this.active;
+        const frequencyValue = document.getElementById('frequencyValue');
+        MainFrequencyDiv.value = this.MainFrequency;
+        frequencyValue.innerHTML = this.MainFrequency;
+        
+    }
 
-    fetch('/saveconfig', {
-        mode: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.config)
-    }).then(response => {
-        this.result.value += response.ok ? "ok " : "ERROR:" + response.status + " " + response.statusText;
-        console.log('response');
-    }).catch((err) => {
-        // convert err to one line
-        this.result.value += " " + err.stack.toString().replace(/\n/g, " ");
-        console.log('err');
-        this.nameDiv.classList.add('error');
-    });
+    createAgents() {
+        this.agents = [];
+        this.config.agents.forEach((agent) => {
+            this.agents.push(new Agent(agent));
+        });
+    }
+
+    saveConfig() {
+        this.config.active = this.active;
+
+        fetch('/saveconfig', {
+            mode: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.config)
+        }).then(response => {
+            this.result.value += response.ok ? "ok " : "ERROR:" + response.status + " " + response.statusText;
+            console.log('response');
+        }).catch((err) => {
+            // convert err to one line
+            this.result.value += " " + err.stack.toString().replace(/\n/g, " ");
+            console.log('err');
+            this.nameDiv.classList.add('error');
+        });
+    }
+
+    runAll() {
+        this.mainCounter++;
+        this.agents.forEach((agent) => {
+            if (agent.active) {
+                agent.run();
+            }
+        });
+        this.AutoPilotTimer = setTimeout(()=>this.runAll(), this.timerTime);
+    }
 }

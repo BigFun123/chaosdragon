@@ -11,16 +11,12 @@
         <select id="personality<%=datum.name%>">
             <option value="bee" <%- datum.personality=="bee" ? "selected" : "" %>> Bee</option>
             <option value="monkey" <%- datum.personality=="monkey" ? "selected" : "" %>>Monkey</option>
-            <option value="butterfly" <%- datum.personality=="butterfly" ? "selected" : "" %>>Butterfly</option>
-            <option value="dragon" <%- datum.personality=="dragon" ? "selected" : "" %>>Dragon</option>
+            <option value="butterfly" <%- datum.personality=="butterfly" ? "selected" : "" %>>Butterfly</option>            
             <option value="donkey" <%- datum.personality=="donkey" ? "selected" : "" %>>Donkey</option>
+            <option value="dragon" <%- datum.personality=="dragon" ? "selected" : "" %>>Dragon</option>
         </select>
         <div class="vstack">
-            <input type="text" value="<%=datum.url%>" id="url<%=datum.name%>">
+            <input type="text" value="<%=datum.url%>?<%=datum.params%>" id="url<%=datum.name%>">
             <input type="text" class="result" id="result<%=datum.name%>">
         </div>
 </div>
-
-<script>
-    agents.push(new Agent(<%-JSON.stringify(datum)%>));
-</script>

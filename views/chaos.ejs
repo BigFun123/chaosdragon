@@ -7,13 +7,12 @@
     <title>Chaos</title>
     <%- include ('partials/headcontent.ejs') %>
         <script src="/js/agent.js"></script>
-
 </head>
 
 <body>
     <%- include('partials/header') %>
         <div class="main">
-            
+
             <div class="submenu">
                 <div class="heading">Agents</div>
                 <div class="slidecontainer">
@@ -23,16 +22,17 @@
                 </div>
             </div>
             <script src="/js/agentman.js"></script>
+            <script src="/js/telemetry.js"></script>
+            <script src="/js/index.js"></script>
+
             <div id="agents">
                 <% data.forEach( datum=> { %>
                     <%- include ('partials/activity', {datum: datum}); %>
                         <% }) %>
             </div>
+            <%- include('./telemetry') %>
         </div>
-        <%- include('./telemetry') %>
-            <script src="/js/telemetry.js"></script>
-            <script src="/js/memory.js"></script>
-
+        <script src="/js/memory.js"></script>
 </body>
 
 </html>

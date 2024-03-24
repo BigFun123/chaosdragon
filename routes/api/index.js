@@ -8,6 +8,11 @@ const router = require('express').Router();
 const defaultResponse = { id: 0, name: 'default' };
 let counter = 0;
 
+router.get('/getconfig', (req, res) => {
+    const config = require("../../config.json");
+    res.send(config);
+});
+
 router.get('/', (req, res) => {
     defaultResponse.id = counter++;
     // console.log("chaos received");
@@ -33,6 +38,15 @@ router.get('/testdelay', (req, res) => {
         res.send(defaultResponse);
     }, Math.random() * 1000);
 });
+
+router.post('/testdelay', (req, res) => {
+    defaultResponse.id = counter++;
+    // console.log("chaos received");
+    setTimeout(() => {
+        res.send(defaultResponse);
+    }, Math.random() * 1000);
+});
+
 
 router.post('/test', (req, res) => {
     defaultResponse.id = counter++;

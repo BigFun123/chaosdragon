@@ -5,11 +5,15 @@
         "host": "localhost",
         "port": 7000
     },
+    "running": {
+        "speed": 1000
+    },
     "agents": [
         {
             "active": true,
             "name": "c1",
             "url": "http://localhost:7000/api/test",
+            "params": "name=bob&age=30",
             "method": "GET",
             "backend": false,
             "headers": {

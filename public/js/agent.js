@@ -60,6 +60,28 @@ class Agent {
         console.log("stop " + this.name);
     }
 
+    createNullParams(params) {
+        for (Object.key in params) {
+            params[key] = null;
+        }
+    }
+
+    createRandomParam() {
+        // create 3 random strings
+        const strings = [];
+        for (let i = 0; i < 3; i++) {
+            strings.push(Math.random().toString(36).substring(7));
+        }
+
+        const values = [];
+        for (let i = 0; i < 3; i++) {
+            values.push(Math.random());
+        }
+
+        const params = `?${strings[0]}=${values[0]}&${strings[1]}=${values[1]}&${strings[2]}=${values[2]}`;
+        return params;
+    }
+
     setButtonOff() {
         if (this.buttonTimeout) {
             clearTimeout(this.buttonTimeout);
@@ -83,21 +105,9 @@ class Agent {
             case "monkey":
 
                 if (Math.random() > 0.9) {
-                    // create random url params
-                    // create 3 random strings
-                    const strings = [];
-                    for (let i = 0; i < 3; i++) {
-                        strings.push(Math.random().toString(36).substring(7));
-                    }
-
-                    const values = [];
-                    for (let i = 0; i < 3; i++) {
-                        values.push(Math.random());
-                    }
-
-
-                    const params = `?${strings[0]}=${values[0]}&${strings[1]}=${values[1]}&${strings[2]}=${values[2]}`;
-                    this.makeCall(params);
+                    this.makeCall(this.createRandomParam());
+                } else {
+                    this.makeCall(this.createNullParams(this.config.params));
                 }
                 break;
             case "butterfly":
