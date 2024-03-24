@@ -3,7 +3,7 @@
 
 ![Image Description](./doc/screen.jpg)
 
-Creates a set of chaos agents with differeing archetypes. Each chaos agent tests an API or service.
+Creates a set of chaos agents with differing archetypes. Each chaos agent tests an API or service.
 
 ## setup
 edit config.json  
@@ -12,11 +12,14 @@ open the gui: localhost:7000
 
 
 ### TODO:
-1. First definte steady state, use metric snapshot
+NATS testing  
+Service up/down  
+Pen testing, e.g. SQL injection, buffer overruns  
+Definte steady state, use metric snapshot
     1. compare results to steady state
-2. Introduce sudden chaos
-3. Introduce rising chaos
-4. define a blast radius
+Introduce sudden chaos
+Introduce rising chaos
+Define a blast radius
 
 ## Types of Chaos Agents:
 1. bee - little jabs of chaos
