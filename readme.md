@@ -1,8 +1,11 @@
 # Chaos Dragon
 ## A chaos engineering tool that introduces measured instability and load to help engineers create more robust systems
 
+![Image Description](./doc/screen.jpg)
+
 Creates a set of chaos agents with differeing archetypes. Each chaos agent tests an API or service.
 
+## setup
 edit config.json  
 npm run start  
 open the gui: localhost:7000  
